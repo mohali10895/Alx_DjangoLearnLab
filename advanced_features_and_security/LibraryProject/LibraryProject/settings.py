@@ -33,3 +33,19 @@ SESSION_COOKIE_SECURE = True
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")  # Adjust as needed
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")  # Adjust as needed
+
+
+# settings.py
+
+# Redirect all HTTP requests to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# Enable HTTP Strict Transport Security (HSTS) for one year (31536000 seconds)
+SECURE_HSTS_SECONDS = 31536000
+
+# Include subdomains in HSTS policy
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# Allow browsers to preload the HSTS policy
+SECURE_HSTS_PRELOAD = True
+
