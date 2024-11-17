@@ -19,5 +19,20 @@ def create_book(request):
 class BookUpdateView(PermissionRequiredMixin, UpdateView):
     model = Book
     fields = ['title', 'author', 'published_date']
-    template_name = 'books/edit_book.html'
+    template_name = 'books/edit_book.html'from django.contrib.auth.decorators import permission_required
+
+
+from django.shortcuts import render
+from .models import Book
+
+@permission_required('app_name.can_view', raise_exception=True)
+def book_list(request):
+    """
+    View to list all books. Requires 'can_view' permission.
+    """
+    books = Book.objects.all()
+    return render(request, 'books/book_list.html', {'books': books})
+
     permission_required = 'app_name.can_edit'
+
+
