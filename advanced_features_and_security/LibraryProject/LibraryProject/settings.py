@@ -49,3 +49,22 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 # Allow browsers to preload the HSTS policy
 SECURE_HSTS_PRELOAD = True
 
+# settings.py
+
+# Ensure session cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True
+
+# Ensure CSRF cookies are only sent over HTTPS
+CSRF_COOKIE_SECURE = True
+
+
+# settings.py
+
+# Prevent the site from being framed (protect against clickjacking)
+X_FRAME_OPTIONS = 'DENY'
+
+# Prevent browsers from MIME-sniffing a response away from the declared content-type
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Enable the browser's XSS filtering to prevent cross-site scripting attacks
+SECURE_BROWSER_XSS_FILTER = True
