@@ -36,3 +36,30 @@ def book_list(request):
     permission_required = 'app_name.can_edit'
 
 
+
+
+
+
+
+
+# bookshelf/views.py
+from django.shortcuts import render
+from .forms import ExampleForm  # Import the ExampleForm class
+
+def example_view(request):
+    if request.method == 'POST':
+        form = ExampleForm(request.POST)
+        if form.is_valid():
+            # Process the data in form.cleaned_data
+            title = form.cleaned_data['title']
+            author = form.cleaned_data['author']
+            published_date = form.cleaned_data['published_date']
+            # For example, you might save the data to the database
+            # Book.objects.create(title=title, author=author, published_date=published_date)
+            # Or perform other actions with the data
+            return render(request, 'bookshelf/form_example.html', {'form': form, 'message': 'Book successfully added!'})
+    else:
+        form = ExampleForm()
+
+    return render(request, 'bookshelf/form_example.html', {'form': form})
+
