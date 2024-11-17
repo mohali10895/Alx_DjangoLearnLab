@@ -68,3 +68,19 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Enable the browser's XSS filtering to prevent cross-site scripting attacks
 SECURE_BROWSER_XSS_FILTER = True
+
+SECURE_SSL_REDIRECT = True  # Redirect all HTTP to HTTPS
+SECURE_HSTS_SECONDS = 31536000  # One year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply to subdomains
+SECURE_HSTS_PRELOAD = True  # Enable HSTS preload
+SECURE_BROWSER_XSS_FILTER = True  # Enable browser's XSS filter
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent MIME sniffing
+X_FRAME_OPTIONS = 'DENY'  # Prevent framing (clickjacking)
+CSRF_COOKIE_SECURE = True  # Ensure CSRF cookies are secure (only sent over HTTPS)
+SESSION_COOKIE_SECURE = True  # Ensure session cookies are secure (only sent over HTTPS)
+
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = ['https://yourdomain.com', 'https://www.yourdomain.com']
+
+# Add the following settings for reverse proxy (e.g., Nginx or Apache)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
