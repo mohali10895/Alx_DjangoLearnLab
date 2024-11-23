@@ -1,14 +1,12 @@
 INSTALLED_APPS = [
-    # Default Django apps...
-    'rest_framework',  # Add this
-]
-INSTALLED_APPS = [
     # Other apps...
-    'api',  # Add this
+    'rest_framework',
+    'rest_framework.authtoken',
+    'api',  # your app
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authtoken',
+        'rest_framework.authentication.TokenAuthentication',
     ],
 }
