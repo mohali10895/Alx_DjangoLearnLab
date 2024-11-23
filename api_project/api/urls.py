@@ -22,14 +22,13 @@ urlpatterns = [
     path('', include(router.urls)),
 ]
 
-viewsets.ModelViewSet
-from rest_framework.viewsets.ModelViewSet import viewsets.ModelViewSet
-from .models import Book
-from .serializers import BookSerializer
+from rest_framework.routers import DefaultRouter
+from .views import BookViewSet
+from django.urls import path, include
 
-class BookViewSet(ModelViewSet):
-    """
-    A ViewSet for performing CRUD operations on the Book model.
-    """
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
+router = DefaultRouter()
+router.register(r'books_all', BookViewSet, basename='book_all')
+
+urlpatterns = [
+    path('', include(router.urls)),
+]
