@@ -22,7 +22,7 @@ urlpatterns = [
     path('', include(router.urls)),
 ]
 
-
+viewsets.ModelViewSet
 from rest_framework.viewsets.ModelViewSet import viewsets.ModelViewSet
 from .models import Book
 from .serializers import BookSerializer
