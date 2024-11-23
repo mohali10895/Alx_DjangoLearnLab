@@ -23,7 +23,7 @@ urlpatterns = [
 ]
 
 
-from rest_framework.viewsets.ModelViewSet import ModelViewSet
+from rest_framework.viewsets.ModelViewSet import viewsets.ModelViewSet
 from .models import Book
 from .serializers import BookSerializer
 
