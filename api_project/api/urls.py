@@ -32,3 +32,12 @@ router.register(r'books_all', BookViewSet, basename='book_all')
 urlpatterns = [
     path('', include(router.urls)),
 ]
+
+
+from rest_framework.authtoken.views import obtain_auth_token
+from django.urls import path
+
+urlpatterns = [
+    # Other routes...
+    path('auth/token/', obtain_auth_token, name='api-token-auth'),
+]
