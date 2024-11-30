@@ -55,20 +55,22 @@ class BookDeleteView(mixins.DestroyModelMixin, generics.GenericAPIView):
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 
-from django_filters.rest_framework import DjangoFilterBackend  # Import DjangoFilterBackend for filtering
-from rest_framework import filters, generics  # Import filters and generics for search, ordering, and views
-from .models import Book
-from .serializers import BookSerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+# Import the required modules
+from django_filters.rest_framework import DjangoFilterBackend  # For filtering functionality
+from rest_framework import filters, generics  # For search, ordering, and generic views
+from rest_framework.permissions import IsAuthenticatedOrReadOnly  # For permission handling
+from .models import Book  # Import the Book model
+from .serializers import BookSerializer  # Import the BookSerializer
 
 class BookListView(generics.ListCreateAPIView):
     """List all books or create a new book."""
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter)
-    filterset_fields = ['title', 'author', 'publication_year']  # Fields to filter by
-    search_fields = ['title', 'author']  # Fields to search by
-    ordering_fields = ['title', 'publication_year']  # Fields to order by
-    ordering = ['title']  # Default ordering
+    queryset = Book.objects.all()  # Queryset for retrieving all books
+    serializer_class = BookSerializer  # Serializer used to convert Book objects to JSON
+    permission_classes = [IsAuthenticatedOrReadOnly]  # Set permission classes
+    filter_backends = (DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter)  # Enable filtering, searching, and ordering
+    filterset_fields = ['title', 'author', 'publication_year']  # Fields that can be filtered
+    search_fields = ['title', 'author']  # Fields that can be searched
+    ordering_fields = ['title', 'publication_year']  # Fields that can be ordered by
+    ordering = ['title']  # Default ordering by title
+
 
