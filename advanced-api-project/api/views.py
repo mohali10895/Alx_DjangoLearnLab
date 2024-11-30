@@ -60,6 +60,9 @@ from django_filters.rest_framework import DjangoFilterBackend  # For filtering f
 from rest_framework import filters, generics  # For search, ordering, and generic views
 from rest_framework.permissions import IsAuthenticatedOrReadOnly  # For permission handling
 from .models import Book  # Import the Book model
+from django_filters import rest_framework
+from rest_framework import generics
+
 from .serializers import BookSerializer  # Import the BookSerializer
 
 class BookListView(generics.ListCreateAPIView):
