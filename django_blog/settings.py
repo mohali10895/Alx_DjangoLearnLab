@@ -12,3 +12,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+STATIC_URL = '/static/'
+
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [BASE_DIR / "blog/templates"],
+        ...
+    },
+]
