@@ -21,3 +21,6 @@ TEMPLATES = [
         ...
     },
 ]
+INSTALLED_APPS += [
+    'taggit',
+]
