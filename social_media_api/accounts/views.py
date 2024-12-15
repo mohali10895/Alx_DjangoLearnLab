@@ -2,6 +2,9 @@ from rest_framework import permissions, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
+from django.contrib.auth import generics.GenericAPIView 
+from django.contrib.auth import permissions.IsAuthenticated 
+from django.contrib.auth import CustomUser.objects.all()
 
 User = get_user_model()
 
